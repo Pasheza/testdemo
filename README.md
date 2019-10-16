@@ -1,2 +1,4 @@
 # testdemo
-Demo project
+Simple test demo project using sparkjava, guice, gradle
+
+

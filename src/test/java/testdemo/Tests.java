@@ -2,6 +2,8 @@ package testdemo;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import io.qameta.allure.Allure;
+import io.qameta.allure.Description;
 import org.junit.jupiter.api.*;
 
 import java.io.IOException;
@@ -31,20 +33,19 @@ public class Tests {
     }
 
     @Test
+    @DisplayName("Test example")
+    @Description("Simple test using api from reqres.in and stub")
     public void stubTest() throws IOException {
+
         String apiResult = testUtils.getStringResponse("https://reqres.in/api/unknown/4");
         logger.info(apiResult);
+        Allure.addAttachment("Api result", apiResult);
+
         String stubResult = testUtils.getStringResponse("http://localhost:7777/getStub");
         logger.info(stubResult);
+        Allure.addAttachment("Stub result", stubResult);
+
         assertThat(apiResult, equalTo(stubResult));
     }
 
-//    @Test
-//    public void brokenStubTest() throws IOException {
-//        String apiResult = testUtils.getStringResponse("https://reqres.in/api/unknown/2");
-//        logger.info(apiResult);
-//        String stubResult = testUtils.getStringResponse("http://localhost:7777/getStub");
-//        logger.info(stubResult);
-//        assertThat(apiResult, equalTo(stubResult));
-//    }
 }
