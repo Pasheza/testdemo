@@ -5,6 +5,7 @@ import com.google.inject.name.Named;
 
 import static spark.Spark.*;
 
+//Stub service made with sparkjava and guice injection
 public class Stub implements ServiceInterface {
 
     @Inject

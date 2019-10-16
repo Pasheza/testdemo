@@ -10,6 +10,7 @@ import java.util.Objects;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
+//Util class for making http requests
 public class TestUtils {
 
     public String getStringResponse(String url) throws IOException {
